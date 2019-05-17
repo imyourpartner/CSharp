@@ -16,7 +16,7 @@ namespace EntitiesLayer.Model.DataBaseConexion
         }
         public void CerrarConexion()
         {
-            // Logica CrearConexion aqui
+            // Logica CerrarConexion aqui
         }
         // etc..
     }
@@ -270,6 +270,26 @@ namespace ConsoleApp.Notas
 // Sarah Jones
 ```
 
+
+
+
+
+**Modificadores de acceso C#**
+
+**Los modificadores de acceso (especificadores de acceso)** describen como el alcance de accesibilidad de un objeto y sus miembros. Todos los tipos de C # y miembros de tipo tienen un nivel de accesibilidad. Podemos controlar el alcance del objeto miembro de una clase utilizando especificadores de acceso. Estamos utilizando modificadores de acceso para proporcionar seguridad de nuestras aplicaciones. Cuando especificamos la accesibilidad de un tipo o miembro, debemos declararlo utilizando cualquiera de los modificadores de acceso proporcionados por el lenguaje CSharp 
+
+- `public ` es el modificador de acceso más común en C#. Se puede acceder desde cualquier lugar, eso significa que no hay restricciones de accesibilidad. El alcance de la accesibilidad es tanto dentro como fuera de clase. Se puede acceder al tipo o miembro mediante cualquier otro código en el mismo conjunto u otro conjunto que lo haga referencia.
+- `private` El alcance de la accesibilidad está limitado solo dentro de las clases o estructura en que se declaran. No se puede acceder a los miembros privados fuera de la clase y es el nivel de acceso menos permisivo.
+- `protected` El alcance de la accesibilidad está limitado dentro de la clase o estructura y la clase derivada (Heredada) de esta clase.
+- `internal` Los modificadores de acceso interno pueden acceder dentro del programa que contiene sus declaraciones y también acceder dentro del mismo nivel de ensamblaje pero no desde otro ensamblado.
+- `protected internal`
+
+
+
+Los internos protegidos son los mismos niveles de acceso tanto protegidos como internos. Puede acceder a cualquier parte del mismo ensamblado y en la misma clase también a las clases heredadas de la misma clase.
+
+
+
 ### Clases - Herencia
 
 La herencia, junto con la encapsulación y el polimorfismo, es una de las tres características principales de la programación orientada a objetos. La herencia permite crear clases nuevas que reutilizan, extienden y modifican el comportamiento que se define en otras clases. La clase cuyos miembros se heredan se denomina *clase base* y la clase que hereda esos miembros se denomina *clase derivada*. Una clase derivada solo puede tener una clase base directa, pero la herencia es transitiva. Si ClaseC se deriva de ClaseB y ClaseB se deriva de ClaseA, ClaseC hereda los miembros declarados en ClaseB y ClaseA.
@@ -278,4 +298,20 @@ La herencia, junto con la encapsulación y el polimorfismo, es una de las tres c
 
 Cuando se define una clase para que derive de otra clase, la clase derivada obtiene implícitamente todos los miembros de la clase base, salvo sus constructores y sus finalizadores. La clase derivada puede reutilizar el código de la clase base sin tener que volver a implementarlo. Puede agregar más miembros en la clase derivada. De esta manera, la clase derivada amplía la funcionalidad de la clase base.
 
-El mecanismo de herencia es uno de los pilares fundamentales en los que se basa la programación orientada a objetos. Es un mecanismo que permite definir nuevas clases a partir de otras ya definidas de modo que si en la definición de una clase indicamos que ésta deriva de otra, entonces la primera -a la que se le suele llamar clase hija- será tratada por el compilador automáticamente como si su definición incluyese la definición de la segunda –a la que se le suele llamar clase padre o clase base. 
+El mecanismo de herencia es uno de los pilares fundamentales en los que se basa la programación orientada a objetos. Es un mecanismo que permite definir nuevas clases a partir de otras ya definidas de modo que si en la definición de una clase indicamos que ésta deriva de otra, entonces:
+
+La primera - a la que se le suele llamar clase hija- será tratada por el compilador automáticamente como si su definición incluyese la definición de 
+
+La segunda –a la que se le suele llamar clase padre o clase base. 
+
+Las clases que derivan de otras se definen usando la siguiente sintaxis:
+
+```c#
+class <nombreHija> : <nombrePadre>
+{
+	<miembrosHija>
+} 
+
+```
+
+A los miembros definidos en <miembrosHijas> se le añadirán los que hubiésemos definido en la clase padre. Por ejemplo, a partir de la clase Persona puede crearse una clase Trabajador así:

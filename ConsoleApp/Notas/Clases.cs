@@ -1,6 +1,6 @@
 ﻿using System;
 namespace ConsoleApp.Notas
-    {
+{
     public class Persona
     {
         // Propiedades
