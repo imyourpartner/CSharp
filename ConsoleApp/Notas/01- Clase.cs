@@ -27,7 +27,7 @@ namespace ConsoleApp.Notas
     }
     class TestPerson
     {
-        static void Main()
+        static void Main0()
         {
             // Instancia de mis objetos
             Persona per1 = new Persona();

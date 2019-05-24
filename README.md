@@ -1,5 +1,7 @@
 # Microsoft Visual C Sharp
 
+https://docs.microsoft.com/es-es/dotnet/csharp/language-reference
+
 ### El espacio de nombres
 
 Los espacios de nombres se comportan como unos agrupadores de clases, como una forma de organizar las clases. 
@@ -161,13 +163,13 @@ namespace ConsoleApp
 ### Clases
 
 ```c#
-class Program
+class MyClass
 {
 
 }
 ```
 
-Un tipo que se define como una [clase](https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/class), es un *tipo de referencia*. Al declarar una variable de un tipo de referencia en tiempo de ejecución, esta contendrá el valor [null](https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/null) hasta que se cree expresamente una instancia de la clase mediante el operador [new](https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/new) o se le asigne un objeto de un tipo compatible que se ha creado en otro lugar, tal y como se muestra en el ejemplo siguiente:
+Un tipo que se define como [clase](https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/class), es un *tipo de referencia*. Al declarar una variable de un tipo de referencia en tiempo de ejecución, esta contendrá el valor [null](https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/null) hasta que se cree expresamente una instancia de la clase mediante el operador [new](https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/new) o se le asigne un objeto de un tipo compatible que se ha creado en otro lugar, tal y como se muestra en el ejemplo siguiente:
 
 ```c#
 //Declaring an object of type MyClass.
@@ -264,31 +266,47 @@ namespace ConsoleApp.Notas
         }
     }
 }
-// Output:
-// unknown
-// Sarah Jones
-// Sarah Jones
 ```
-
-
-
-
 
 **Modificadores de acceso C#**
 
 **Los modificadores de acceso (especificadores de acceso)** describen como el alcance de accesibilidad de un objeto y sus miembros. Todos los tipos de C # y miembros de tipo tienen un nivel de accesibilidad. Podemos controlar el alcance del objeto miembro de una clase utilizando especificadores de acceso. Estamos utilizando modificadores de acceso para proporcionar seguridad de nuestras aplicaciones. Cuando especificamos la accesibilidad de un tipo o miembro, debemos declararlo utilizando cualquiera de los modificadores de acceso proporcionados por el lenguaje CSharp 
 
 - `public ` es el modificador de acceso más común en C#. Se puede acceder desde cualquier lugar, eso significa que no hay restricciones de accesibilidad. El alcance de la accesibilidad es tanto dentro como fuera de clase. Se puede acceder al tipo o miembro mediante cualquier otro código en el mismo conjunto u otro conjunto que lo haga referencia.
+
 - `private` El alcance de la accesibilidad está limitado solo dentro de las clases o estructura en que se declaran. No se puede acceder a los miembros privados fuera de la clase y es el nivel de acceso menos permisivo.
 - `protected` El alcance de la accesibilidad está limitado dentro de la clase o estructura y la clase derivada (Heredada) de esta clase.
 - `internal` Los modificadores de acceso interno pueden acceder dentro del programa que contiene sus declaraciones y también acceder dentro del mismo nivel de ensamblaje pero no desde otro ensamblado.
-- `protected internal`
+- `protected internal` Los internos protegidos son los mismos niveles de acceso tanto protegidos como internos. Puede acceder a cualquier parte del mismo ensamblado y en la misma clase también a las clases heredadas de la misma clase.
 
+Ejemplo de una clase `public `
 
+```c#
+using System;
 
-Los internos protegidos son los mismos niveles de acceso tanto protegidos como internos. Puede acceder a cualquier parte del mismo ensamblado y en la misma clase también a las clases heredadas de la misma clase.
+namespace ConsoleApp.Notas
+{  
+    public class ClasePublica
+    {
+        public int x;
+        public int y;
+    }
 
+    class ClasePrincipal
+    {
+        static void Main()
+        {
+            ClasePublica p = new ClasePublica();
+            //  Acceso directo a miembros públicos::
+            p.x = 10;
+            p.y = 15;
+            Console.WriteLine("x = {0}, y = {1}", p.x, p.y);
+        }
+    }
+}
+```
 
+Ejemplo de una clase `public`
 
 ### Clases - Herencia
 
